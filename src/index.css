@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm cream palette for newborn photography */
+    --background: 40 33% 97%;
+    --foreground: 30 10% 25%;
+
+    --card: 40 30% 98%;
+    --card-foreground: 30 10% 25%;
+
+    --popover: 40 30% 98%;
+    --popover-foreground: 30 10% 25%;
+
+    /* Soft peach/rose gold primary */
+    --primary: 25 35% 75%;
+    --primary-foreground: 30 10% 20%;
+
+    /* Warm beige secondary */
+    --secondary: 35 25% 92%;
+    --secondary-foreground: 30 10% 30%;
+
+    /* Muted warm grey */
+    --muted: 30 15% 90%;
+    --muted-foreground: 30 10% 45%;
+
+    /* Soft accent */
+    --accent: 200 25% 85%;
+    --accent-foreground: 30 10% 25%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 25 35% 70%;
+
+    --radius: 0.25rem;
+
+    /* Custom photography palette */
+    --cream: 40 33% 97%;
+    --cream-dark: 35 25% 92%;
+    --peach: 25 45% 82%;
+    --peach-dark: 25 35% 75%;
+    --rose: 0 25% 78%;
+    --rose-dark: 0 20% 65%;
+    --baby-blue: 200 30% 85%;
+    --warm-grey: 30 10% 45%;
+    --charcoal: 30 10% 25%;
+
+    /* Typography */
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Montserrat', system-ui, sans-serif;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(30 20% 20% / 0.08);
+    --shadow-medium: 0 8px 30px -8px hsl(30 20% 20% / 0.12);
+    --shadow-hover: 0 12px 40px -12px hsl(30 20% 20% / 0.15);
+
+    /* Transitions */
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 30 15% 10%;
+    --foreground: 40 20% 90%;
+
+    --card: 30 15% 12%;
+    --card-foreground: 40 20% 90%;
+
+    --popover: 30 15% 12%;
+    --popover-foreground: 40 20% 90%;
+
+    --primary: 25 35% 65%;
+    --primary-foreground: 30 15% 10%;
+
+    --secondary: 30 15% 18%;
+    --secondary-foreground: 40 20% 90%;
+
+    --muted: 30 15% 20%;
+    --muted-foreground: 30 15% 60%;
+
+    --accent: 200 20% 30%;
+    --accent-foreground: 40 20% 90%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 15% 20%;
+    --input: 30 15% 20%;
+    --ring: 25 35% 60%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+    @apply font-light tracking-wide;
+  }
+}
+
+@layer components {
+  .text-serif {
+    font-family: var(--font-serif);
+  }
+
+  .text-sans {
+    font-family: var(--font-sans);
+  }
+
+  /* Hero button styles */
+  .btn-hero-primary {
+    @apply bg-foreground text-background px-8 py-3 text-sm uppercase tracking-[0.2em] font-medium;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:bg-foreground/90 hover:shadow-lg;
+  }
+
+  .btn-hero-outline {
+    @apply border border-background/80 text-background px-8 py-3 text-sm uppercase tracking-[0.2em] font-medium;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:bg-background hover:text-foreground;
+  }
+
+  /* Section styles */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-6 md:px-8 lg:px-12;
+  }
+
+  /* Image hover effect */
+  .image-hover {
+    @apply overflow-hidden;
+  }
+
+  .image-hover img {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  .image-hover:hover img {
+    @apply scale-105;
+  }
+
+  /* Fade in animation */
+  .fade-in-up {
+    @apply opacity-0 translate-y-8;
+    animation: fadeInUp 0.8s var(--transition-smooth) forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Stagger delay utilities */
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--cream));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--peach-dark));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--rose-dark));
+}
+
+
+/*ADMIN PANEL THEME*/
+
+/* Admin Panel Theme: Clean Blue/Slate */
+.admin-theme {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+
+  --primary: 249 95% 60%;
+  /* Original Indigo */
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 249 95% 60%;
+
+  --radius: 1rem;
+
+  /* Admin specific font override if needed, or inherit */
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    @apply font-normal tracking-wide;
+  }
+
+  /* Reset heading font weight for admin for standard look */
+  .admin-theme h1,
+  .admin-theme h2,
+  .admin-theme h3 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .container-custom {
+    @apply mx-auto px-6 md:px-12 max-w-7xl;
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@layer components {
+  .btn-hero-primary {
+    @apply px-8 py-3 bg-white/90 text-gray-900 font-sans tracking-widest text-xs uppercase hover:bg-white transition-colors duration-300 backdrop-blur-sm rounded-sm;
+  }
+
+  .btn-hero-outline {
+    @apply px-8 py-3 border border-white/80 text-white font-sans tracking-widest text-xs uppercase hover:bg-white/20 transition-colors duration-300 backdrop-blur-sm rounded-sm;
+  }
+}
